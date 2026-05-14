@@ -42,11 +42,19 @@ function faturamento(pedidos) {
     return totalPedidoPorCliente(pedidos).reduce((acc, curr) => acc + curr.total, 0)
 }
 
+// parte 4
+
+// No backend da aplicação existe a seguinte função utilitária:
+function processarPedidos(pedidos, callback) {
+  return callback(pedidos)
+}
+
 module.exports = {
     nomeClientes,
     pedidosPorId,
     pedidosEntregues,
     todosEntregues,
     totalPedidoPorCliente,
-    faturamento
+    faturamento,
+    processarPedidos
 }

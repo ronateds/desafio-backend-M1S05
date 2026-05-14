@@ -5,7 +5,8 @@ import {
     pedidosEntregues,
     todosEntregues,
     totalPedidoPorCliente,
-    faturamento
+    faturamento,
+    processarPedidos
 } from "./relatorios.js"
 
 //parte 1
@@ -25,6 +26,9 @@ let pedidosJSON = JSON.stringify(pedidos);
 // Transforme a string JSON novamente em array de objetos JavaScript.
 let pedidosObjeto = JSON.parse(pedidosJSON)
 
+// parte 4
+let testeProcessarPedido = processarPedidos(pedidos, faturamento)
+
 // Logs
 // console.log(nomes);
 // console.log(_pedidosPorId);
@@ -34,6 +38,7 @@ let pedidosObjeto = JSON.parse(pedidosJSON)
 // console.log(_totalPedidoPorCliente);
 // console.log(_faturamento);
 
-console.log(pedidosJSON);
-console.log(pedidosObjeto);
+// console.log(pedidosJSON);
+// console.log(pedidosObjeto);
 
+console.log(testeProcessarPedido);
