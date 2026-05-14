@@ -29,12 +29,12 @@ let pedidosObjeto = JSON.parse(pedidosJSON)
 // parte 4
 let nomesCallback = processarPedidos(pedidos, nomeClientes);
 let faturamentoCallback = processarPedidos(pedidos, faturamento);
-let pedidosCallback = processarPedidos(pedidos, pedidosPorStatus("pendente")); //TODO não está funcionando
+// let pedidosCallback = processarPedidos(pedidos, pedidosPorStatus("pendente")); //TODO não está funcionando
 
 // Logs
 // console.log(nomes);
 // console.log(_pedidosPorId);
-// console.log(_pedidosPorStatus);
+console.log(_pedidosPorStatus);
 // console.log(_todosEntregues);
 
 // console.log(_totalPedidoPorCliente);
