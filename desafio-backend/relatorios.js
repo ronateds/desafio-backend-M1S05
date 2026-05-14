@@ -20,4 +20,33 @@ function todosEntregues(pedidos) {
     return pedidos.every(p => p.status == "entregue")
 }
 
-module.exports = { nomeClientes, pedidosPorId, pedidosEntregues, todosEntregues }
+// parte 2
+
+// total de cada pedido
+function totalPedido(pedido){
+    return pedido.itens.reduce((total, item) => {
+        return total + (item.quantidade * item.preco)
+    }, 0)
+}
+
+// Calcular total de cada pedido
+function totalPedidoPorCliente(pedidos){
+    return pedidos.map(pedido => ({
+        cliente: pedido.cliente,
+        total: totalPedido(pedido)
+    }))
+}
+
+// Crie uma função que some todos os pedidos da empresa. (faturamento total)
+function faturamento(pedidos) {
+    return totalPedidoPorCliente(pedidos).reduce((acc, curr) => acc + curr.total, 0)
+}
+
+module.exports = {
+    nomeClientes,
+    pedidosPorId,
+    pedidosEntregues,
+    todosEntregues,
+    totalPedidoPorCliente,
+    faturamento
+}
