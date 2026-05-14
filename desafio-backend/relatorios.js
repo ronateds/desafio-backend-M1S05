@@ -11,8 +11,8 @@ function pedidosPorId(pedidos, id) {
 }
 
 // função que retorne apenas os pedidos cujo status seja `"entregue"`.
-function pedidosEntregues(pedidos) {
-    return pedidos.filter(p => p.status === "entregue")
+function pedidosPorStatus(pedidos, status = "entregue") {
+    return pedidos.filter(p => p.status === status)
 }
 
 // função que valide se todos os pedidos foram entregues.
@@ -44,7 +44,7 @@ function faturamento(pedidos) {
 
 // parte 4
 
-// No backend da aplicação existe a seguinte função utilitária:
+// função utilitária
 function processarPedidos(pedidos, callback) {
   return callback(pedidos)
 }
@@ -52,7 +52,7 @@ function processarPedidos(pedidos, callback) {
 module.exports = {
     nomeClientes,
     pedidosPorId,
-    pedidosEntregues,
+    pedidosPorStatus,
     todosEntregues,
     totalPedidoPorCliente,
     faturamento,

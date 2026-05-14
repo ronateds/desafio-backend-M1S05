@@ -2,7 +2,7 @@ import pedidos from "./pedidos.js";
 import {
     nomeClientes,
     pedidosPorId,
-    pedidosEntregues,
+    pedidosPorStatus,
     todosEntregues,
     totalPedidoPorCliente,
     faturamento,
@@ -12,7 +12,7 @@ import {
 //parte 1
 let nomes = nomeClientes(pedidos);
 let _pedidosPorId = pedidosPorId(pedidos, 2);
-let _pedidosEntregues = pedidosEntregues(pedidos);
+let _pedidosPorStatus = pedidosPorStatus(pedidos);
 let _todosEntregues = todosEntregues(pedidos);
 
 // parte 2
@@ -27,12 +27,14 @@ let pedidosJSON = JSON.stringify(pedidos);
 let pedidosObjeto = JSON.parse(pedidosJSON)
 
 // parte 4
-let testeProcessarPedido = processarPedidos(pedidos, faturamento)
+let nomesCallback = processarPedidos(pedidos, nomeClientes);
+let faturamentoCallback = processarPedidos(pedidos, faturamento);
+let pedidosCallback = processarPedidos(pedidos, pedidosPorStatus("pendente")); //TODO não está funcionando
 
 // Logs
 // console.log(nomes);
 // console.log(_pedidosPorId);
-// console.log(_pedidosEntregues);
+// console.log(_pedidosPorStatus);
 // console.log(_todosEntregues);
 
 // console.log(_totalPedidoPorCliente);
@@ -41,4 +43,6 @@ let testeProcessarPedido = processarPedidos(pedidos, faturamento)
 // console.log(pedidosJSON);
 // console.log(pedidosObjeto);
 
-console.log(testeProcessarPedido);
+// console.log(nomesCallback);
+// console.log(faturamentoCallback);
+// console.log(pedidosPorCallback);
