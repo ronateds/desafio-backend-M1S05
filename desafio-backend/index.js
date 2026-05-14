@@ -18,10 +18,22 @@ let _todosEntregues = todosEntregues(pedidos);
 let _totalPedidoPorCliente = totalPedidoPorCliente(pedidos);
 let _faturamento = faturamento(pedidos)
 
+// parte 3
+// Converta o array de pedidos em uma string JSON.
+let pedidosJSON = JSON.stringify(pedidos);
+
+// Transforme a string JSON novamente em array de objetos JavaScript.
+let pedidosObjeto = JSON.parse(pedidosJSON)
+
 // Logs
 // console.log(nomes);
 // console.log(_pedidosPorId);
 // console.log(_pedidosEntregues);
 // console.log(_todosEntregues);
-console.log(_totalPedidoPorCliente);
-console.log(_faturamento);
+
+// console.log(_totalPedidoPorCliente);
+// console.log(_faturamento);
+
+console.log(pedidosJSON);
+console.log(pedidosObjeto);
+
