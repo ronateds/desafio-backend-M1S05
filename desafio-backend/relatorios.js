@@ -69,8 +69,7 @@ function quantidadePorProduto(pedidos) {
 function produtoMaisVendido(pedidos) {
     return quantidadePorProduto(pedidos).reduce((acc, curr) => {
         return curr.quantidade > acc.quantidade ? curr : acc
-    }
-    ,{ produto: null, quantidade: -1})
+    }, { produto: null, quantidade: -1});
 }
 
 module.exports = {
