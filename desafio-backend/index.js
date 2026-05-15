@@ -6,7 +6,8 @@ import {
     todosEntregues,
     totalPedidoPorCliente,
     faturamento,
-    processarPedidos
+    processarPedidos,
+    produtoMaisVendido
 } from "./relatorios.js"
 
 //parte 1
@@ -20,21 +21,21 @@ let _totalPedidoPorCliente = totalPedidoPorCliente(pedidos);
 let _faturamento = faturamento(pedidos)
 
 // parte 3
-// Converta o array de pedidos em uma string JSON.
-let pedidosJSON = JSON.stringify(pedidos);
-
-// Transforme a string JSON novamente em array de objetos JavaScript.
-let pedidosObjeto = JSON.parse(pedidosJSON)
+let pedidosJSON = JSON.stringify(pedidos); // Converta o array de pedidos em uma string JSON.
+let pedidosObjeto = JSON.parse(pedidosJSON); // Transforme a string JSON novamente em array de objetos JavaScript.
 
 // parte 4
 let nomesCallback = processarPedidos(pedidos, nomeClientes);
 let faturamentoCallback = processarPedidos(pedidos, faturamento);
 // let pedidosCallback = processarPedidos(pedidos, pedidosPorStatus("pendente")); //TODO não está funcionando
 
+// Parte 5
+let _produtosMaisVendidos = produtoMaisVendido(pedidos)
+
 // Logs
 // console.log(nomes);
 // console.log(_pedidosPorId);
-console.log(_pedidosPorStatus);
+// console.log(_pedidosPorStatus);
 // console.log(_todosEntregues);
 
 // console.log(_totalPedidoPorCliente);
@@ -46,3 +47,5 @@ console.log(_pedidosPorStatus);
 // console.log(nomesCallback);
 // console.log(faturamentoCallback);
 // console.log(pedidosPorCallback);
+
+console.log(_produtosMaisVendidos);

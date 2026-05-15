@@ -23,14 +23,14 @@ function todosEntregues(pedidos) {
 // parte 2
 
 // total de cada pedido
-function totalPedido(pedido){
+function totalPedido(pedido) {
     return pedido.itens.reduce((total, item) => {
         return total + (item.quantidade * item.preco)
     }, 0)
 }
 
 // Calcular total de cada pedido
-function totalPedidoPorCliente(pedidos){
+function totalPedidoPorCliente(pedidos) {
     return pedidos.map(pedido => ({
         cliente: pedido.cliente,
         total: totalPedido(pedido)
@@ -46,7 +46,31 @@ function faturamento(pedidos) {
 
 // função utilitária
 function processarPedidos(pedidos, callback) {
-  return callback(pedidos)
+    return callback(pedidos)
+}
+
+// parte 5.1
+
+// retorna lista com todos os pedidos
+function todosOsPedidos(pedidos) {
+    return pedidos.map(p => p.itens).flat()
+}
+
+// retorna lista com quantidade total de pedidos por produto
+function quantidadePorProduto(pedidos) {
+    return todosOsPedidos(pedidos).reduce((acc, { produto, quantidade }) => {
+        const _produto = acc.find(item => item.produto === produto);
+        _produto ? _produto.quantidade += quantidade : acc.push({ produto, quantidade });
+        return acc;
+    }, []);
+}
+
+// retorna objeto com produto mais vendido e quantidade
+function produtoMaisVendido(pedidos) {
+    return quantidadePorProduto(pedidos).reduce((acc, curr) => {
+        return curr.quantidade > acc.quantidade ? curr : acc
+    }
+    ,{ produto: null, quantidade: -1})
 }
 
 module.exports = {
@@ -56,5 +80,6 @@ module.exports = {
     todosEntregues,
     totalPedidoPorCliente,
     faturamento,
-    processarPedidos
+    processarPedidos,
+    produtoMaisVendido
 }
